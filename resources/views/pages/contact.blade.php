@@ -1,4 +1,4 @@
-@extends('pages.about');
+@extends('pages.about')
 
 @section('content')
 <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
@@ -43,5 +43,5 @@
     </div>
   </div>
 
-  
+
 @endsection
