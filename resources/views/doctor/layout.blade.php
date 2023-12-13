@@ -50,7 +50,6 @@
                     <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
                 </div>
             </form> --}}
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,8 +69,8 @@
                     </li>
 
                     @auth
-
                     <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -81,7 +80,7 @@
                     <li class="nav-item">
                         <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
                     </li>
-                    <br>
+
                     <li class="nav-item">
                         <a class="btn btn-primary ml-lg-3" href="{{ route('register') }}">Register</a>
                     </li>
@@ -101,9 +100,9 @@
     </div>
 
 </body>
-<footer class="page-footer">
-    <div class="container">
-        <div class="row px-md-3">
+<footer class="page-footer" style="position: fixed; width:100%;bottom:0;padding:25px">
+    <div class="container " >
+        {{-- <div class="row px-md-3">
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Company</h5>
                 <ul class="footer-menu">
@@ -132,9 +131,9 @@
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Contact</h5>
-                <p class="footer-link mt-2">South Lebanon Saida</p>
-                <a href="#" class="footer-link">+961 81 086 955</a>
-                <p  class="footer-link">yousef.yh.2001@gmail.com</p>
+                <p class="footer-link mt-2">351 Willow Street Franklin, MA 02038</p>
+                <a href="#" class="footer-link">701-573-7582</a>
+                <a href="#" class="footer-link">healthcare@temporary.net</a>
 
                 <h5 class="mt-3">Social Media</h5>
                 <div class="footer-sosmed mt-3">
@@ -145,9 +144,9 @@
                     <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <hr>
+
         <p id="copyright">Copyright &copy; 2023 Developed by : <a href="https://github.com/yousefHijazi1/" target="_blank">Yousef Hijazi</a>. All right reserved</p>
     </div>
 </footer>
