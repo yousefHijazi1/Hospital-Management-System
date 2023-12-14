@@ -25,7 +25,7 @@
 
             <div class="mb-3">
                 <label for="name" class="form-label">Name *</label>
-                <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" required>
+                <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" required placeholder="Enter your name">
                 @error('name')
                     <span class="text-danger"><strong>{{ $message }}</strong></span>
                 @enderror
@@ -33,7 +33,7 @@
 
             <div class="mb-3">
                 <label for="email" class="form-label"> Email address *</label>
-                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required placeholder="Enter your e-mail address">
                 @error('email')
                     <span class="text-danger"><strong>{{ $message }}</strong></span>
                 @enderror
@@ -41,7 +41,7 @@
 
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone *</label>
-                <input type="tel" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" required>
+                <input type="number" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" required placeholder="Enter your phone number">
                 @error('phone')
                     <span class="text-danger"><strong>{{ $message }}</strong></span>
                 @enderror
@@ -49,12 +49,12 @@
 
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
-                <input type="tel" class="form-control" name="address" id="address" aria-describedby="addressHelp">
+                <input type="tel" class="form-control" name="address" id="address" aria-describedby="addressHelp" placeholder="Enter your location (optionally)">
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password *</label>
-                <input type="password" class="form-control" name="password" id="password" required>
+                <input type="password" class="form-control" name="password" id="password" required placeholder="Enter strong password">
                 @error('password')
                     <span class="text-danger"><strong>{{ $message }}</strong></span>
                 @enderror
@@ -62,12 +62,12 @@
 
             <div class="mb-3">
                 <label for="confirmPass" class="form-label">Confirm Password *</label>
-                <input type="password" name="password_confirmation" class="form-control" id="confirmPass" required>
+                <input type="password" name="password_confirmation" class="form-control" id="confirmPass" required placeholder="Re enter your password">
                 <p id="errorText"></p>
             </div>
 
             <button type="submit" class="btn text-light" id="registerButton" style="background-color: #06c706">Submit</button>
-           
+
         </form>
         <div class="login-signup mt-2">
             <span class="text">Already have user ?

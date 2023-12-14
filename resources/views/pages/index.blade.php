@@ -1,13 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+</svg>
 @extends('pages.layout')
 
 
 @section('content')
+
+@if (session('add_conflict'))
+    <div class="alert alert-warning d-flex align-items-center mt-3" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+        {{ session('add_conflict') }}&nbsp; <a href="#myForm" class="alert-link" style="text-decoration: underline"> Try agin with another appointment</a>
+    </div>
+@endif
+
+@if (session('add_success'))
+    <div class="alert alert-success d-flex align-items-center mt-3" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        {{ session('add_success') }}
+    </div>
+@endif
+
+@if (session('add_failed'))
+    <div class="alert alert-danger d-flex align-items-center mt-3" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        Something wrong &nbsp;  <a href="#myForm" class="alert-link" style="text-decoration: underline"> Try agin</a>
+    </div>
+@endif
+
     <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
         <div class="hero-section">
             <div class="container text-center wow zoomIn">
                 <span class="subhead">Let's make your life happier</span>
                 <h1 class="display-4">Healthy Living</h1>
-                <a href="#" class="btn btn-primary">Let's Consult</a>
+                {{-- <a href="#" class="btn btn-primary">Let's Consult</a> --}}
             </div>
         </div>
     </div>
@@ -127,32 +160,53 @@
 
     <div class="page-section">
         <div class="container">
-            <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
+            <h1 class="text-center wow fadeInUp" id="myForm">Make an Appointment</h1>
 
-            <form class="main-form">
+            <form class="main-form" method="POST" action="{{ route('appointment_store') }}" id="appointment-form">
+                {{-- @dd($errors) --}}
+                @csrf
                 <div class="row mt-5 ">
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <input type="text" class="form-control" placeholder="Full name">
+                    <div class="col-lg-6 col-sm-6 py-2 wow fadeInLeft">
+                        <input type="text" name="name" class="form-control" placeholder="Full name" required>
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <input type="text" class="form-control" placeholder="Email address..">
+                    <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight">
+                        <input type="email" name="email" class="form-control" placeholder="Email address.." required>
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                        <input type="date" class="form-control">
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                        <input type="date" name="birthDate" class="form-control" required>
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        <select name="departement" id="departement" class="custom-select">
-                            <option value="general">General Health</option>
+                    <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                        <select name="department" id="department" class="custom-select" required>
+                            <option value="general health">General Health</option>
                             <option value="cardiology">Cardiology</option>
                             <option value="dental">Dental</option>
                             <option value="neurology">Neurology</option>
                             <option value="orthopaedics">Orthopaedics</option>
                         </select>
                     </div>
-                    <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <input type="text" class="form-control" placeholder="Number..">
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 py-2 wow fadeInUp" data-wow-delay="300ms">
+                        <input type="number" name="phone" class="form-control" placeholder="Phone number.." required>
                     </div>
-                    <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                            <select name="appointment-time" id="appointment-time" class="custom-select" required>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="01:00">01:00</option>
+                                <option value="02:00">02:00</option>
+                                <option value="03:00">03:00</option>
+                                <option value="04:00">04:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 py-2 wow fadeInUp" data-wow-delay="300ms">
                         <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
                     </div>
                 </div>
@@ -162,25 +216,6 @@
         </div>
     </div> <!-- .page-section -->
 
-    {{-- <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
-    <div class="container py-5 py-lg-0">
-      <div class="row align-items-center">
-        <div class="col-lg-4 wow zoomIn">
-          <div class="img-banner d-none d-lg-block">
-            <img src="../assets/img/mobile_app.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-8 wow fadeInRight">
-          <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
-          <a href="#"><img src="../assets/img/google_play.svg" alt=""></a>
-          <a href="#" class="ml-2"><img src="../assets/img/app_store.svg" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-
-    {{-- <h1>User</h1>
-     --}}
     <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -190,4 +225,6 @@
     <script src="{{ asset('assets/vendor/wow/wow.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+
+    {{-- <script src="{{ asset('js/appointment.js') }}"></script> --}}
 @endsection

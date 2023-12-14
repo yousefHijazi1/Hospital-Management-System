@@ -52,20 +52,18 @@
                 <div class="col-lg-8 wow fadeInUp">
                     <h1 class="text-center mb-3">Welcome to Your Health Center</h1>
                     <div class="text-lg">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt neque sit, explicabo vero nulla
-                            animi nemo quae cumque, eaque pariatur eum ut maxime! Tenetur aperiam maxime iure explicabo aut
-                            consequuntur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt neque sit,
-                            explicabo vero nulla animi nemo quae cumque, eaque pariatur eum ut maxime! Tenetur aperiam
-                            maxime iure explicabo aut consequuntur.</p>
-                        <p>Expedita iusto sunt beatae esse id nihil voluptates magni, excepturi distinctio impedit illo,
-                            incidunt iure facilis atque, inventore reprehenderit quidem aliquid recusandae. Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laudantium quod ad sequi atque accusamus deleniti
-                            placeat dignissimos illum nulla voluptatibus vel optio, molestiae dolore velit iste maxime,
-                            nobis odio molestias!</p>
+                        <p>A health center is a facility that provides primary healthcare services to individuals within a community or region.
+                            These centers play a crucial role in promoting and maintaining the health and well-being of the population they serve.
+
+                        <p>Health centers are typically staffed by a diverse team of healthcare professionals, including doctors, nurses, and support staff.
+                            They offer a wide range of services, such as preventive care, diagnosis and treatment of common illnesses,
+                            vaccinations, health screenings, and management of chronic conditions.</p>
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-10 mt-5">
+                {{-- <div class="col-lg-10 mt-5">
                     <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+
                     <div class="row justify-content-center">
                         <div class="col-md-6 col-lg-4 wow zoomIn">
                             <div class="card-doctor">
@@ -114,7 +112,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

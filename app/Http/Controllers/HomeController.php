@@ -27,7 +27,6 @@ class HomeController extends Controller
                     return view('doctor.index');
                 }
             }
-
             else{
                 Auth::logout();
                 return redirect()->back()->withErrors(['permission' => 'You do not have permission to log in.']);
