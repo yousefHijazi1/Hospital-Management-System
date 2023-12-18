@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\Redirect;
 
 class AppointmentsController extends Controller
 {
@@ -86,6 +87,9 @@ class AppointmentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+        $appointment->delete();
+
+        return Redirect::route('home')->with('appointment_done', 'Appointment Expired');
     }
 }

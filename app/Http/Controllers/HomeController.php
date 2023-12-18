@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Doctor;
 use App\Models\Blog;
+use App\Models\Appointment;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,8 @@ class HomeController extends Controller
                     return view('admin.index');
                 }
                 else{
-                    return view('doctor.index');
+                    $appointments = Appointment::all();
+                    return view('doctor.index',compact('appointments'));
                 }
             }
             else{

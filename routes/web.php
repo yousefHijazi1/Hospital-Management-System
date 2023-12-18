@@ -30,4 +30,6 @@ Route::get('/contact', [ContactsController::class ,'index'])->name('contact');
 Route::post('/contact_store',[ContactsController::class,'store'])->name('contact_store');
 
 Route::post('/appointment',[AppointmentsController::class,'store'])->name('appointment_store');
+
+Route::delete('/appointment_delete/{id}/',[AppointmentsController::class,'destroy'])->name('appointment_delete');
 // Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
