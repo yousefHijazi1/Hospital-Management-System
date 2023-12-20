@@ -60,18 +60,18 @@
                     </div>
                     <div class="col-md-4 py-3 py-md-0">
                         <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-primary text-white">
-                                <span class="mai-shield-checkmark"></span>
-                            </div>
-                            <p><span>One</span>-Health Protection</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
                             <div class="circle-shape bg-accent text-white">
                                 <span class="mai-basket"></span>
                             </div>
                             <p><span>One</span>-Health Pharmacy</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-primary text-white">
+                                <span class="mai-shield-checkmark"></span>
+                            </div>
+                            <p><span>One</span>-Health Protection</p>
                         </div>
                     </div>
                 </div>
@@ -83,11 +83,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 py-3 wow fadeInUp">
                         <h1>Welcome to Your Health <br> Center</h1>
-                        <p class="text-grey mb-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-                            et accusam et justo duo dolores et ea rebum. Accusantium aperiam earum ipsa eius, inventore nemo
-                            labore eaque porro consequatur ex aspernatur. Explicabo, excepturi accusantium! Placeat
-                            voluptates esse ut optio facilis!</p>
+                        <p class="text-grey mb-4">A health center is a facility that provides primary healthcare services to individuals within
+                            a community or region.
+                            These centers play a crucial role in promoting and maintaining the health and well-being of the population they serve.
+                            Health centers are typically staffed by a diverse team of healthcare professionals,
+                            including doctors, nurses, and support staff. They offer a wide range of services, such as preventive care,
+                            diagnosis and treatment of common illnesses, vaccinations, health screenings, and management of chronic conditions</p>
                         <a href="{{ route('about') }}" class="btn btn-primary">Learn More</a>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
@@ -170,7 +171,7 @@
                         <input type="text" name="name" class="form-control" placeholder="Full name" required>
                     </div>
                     <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight">
-                        <input type="email" name="email" class="form-control" placeholder="Email address.." required>
+                        <input type="email" name="email" class="form-control" placeholder="Email address" required>
                     </div>
                 </div>
                 <div class="row">
@@ -189,7 +190,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-sm-6 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <input type="number" name="phone" class="form-control" placeholder="Phone number.." required>
+                        <input type="number" name="phone" class="form-control" placeholder="Phone number" required>
                     </div>
                     <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                             <select name="appointment-time" id="appointment-time" class="custom-select" required>
@@ -207,7 +208,7 @@
 
                 <div class="row">
                     <div class="col-lg-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
+                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter a message (optional)"></textarea>
                     </div>
                 </div>
 

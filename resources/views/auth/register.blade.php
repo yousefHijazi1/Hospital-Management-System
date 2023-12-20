@@ -66,14 +66,14 @@
                 <p id="errorText"></p>
             </div>
 
-            <button type="submit" class="btn text-light" id="registerButton" style="background-color: #06c706">Submit</button>
+            <button type="submit" class="btn text-light" id="registerButton" style="background-color: #3B71CA;">Submit</button>
+            <div class="login-signup mt-2" style="display:inline;margin-left:60px">
+                <span class="text">Already have user ?
+                    <a href="{{ route('login') }}" class="text signup-link" style="color: #3B71CA">Login</a>
+                </span>
+            </div>
 
         </form>
-        <div class="login-signup mt-2">
-            <span class="text">Already have user ?
-                <a href="{{ route('login') }}" class="text signup-link" style="color: #06c706">Login</a>
-            </span>
-        </div>
     </div>
 
     <script src="{{ asset('js/script.js') }}"></script>

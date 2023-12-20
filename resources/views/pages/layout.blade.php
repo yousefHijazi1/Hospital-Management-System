@@ -40,7 +40,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('index') }}"><span class="text-primary">One</span>-Health</a>
+            <a class="navbar-brand" href="{{ route('index') }}"><span class="text-primary" style="color: #3B71CA important!">One</span>-Health</a>
 
             {{-- <form action="#">
                 <div class="input-group input-navbar">
