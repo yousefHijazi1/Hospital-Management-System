@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class,'redirect'])->name('home');
+    Route::get('/settings',function(){ return view('admin.setting');})->name('setting');
 });
 
 Route::get('/',[HomeController::class,'index'])->name('index');
