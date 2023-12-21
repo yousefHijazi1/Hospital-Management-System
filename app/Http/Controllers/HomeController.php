@@ -7,6 +7,7 @@ use Auth;
 use App\Models\Doctor;
 use App\Models\Blog;
 use App\Models\Appointment;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,14 @@ class HomeController extends Controller
         if(Auth::id()){
             if(Auth::user()->permission == 1){
                 if(Auth::user()->userType== 'admin'){
-                    return view('admin.index');
+                    $users = User::where('userType', '!=', 'admin')->get();
+
+                    $appointments = Appointment::all();
+                    $totalPrice = $appointments->sum('price'); // Calculate the total price using Laravel's sum() function
+
+                    $appointmentCount = Appointment::count();
+
+                    return view('admin.index',compact('appointmentCount','totalPrice','users'));
                 }
                 else{
                     $appointments = Appointment::all();

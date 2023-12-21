@@ -15,7 +15,8 @@ class Appointment extends Model
         'department',
         'phone',
         'appointment-time',
-        'message'
+        'message',
+        'price'
     ];
 
     use HasFactory;

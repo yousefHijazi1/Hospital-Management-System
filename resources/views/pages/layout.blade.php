@@ -148,7 +148,7 @@
         </div>
 
         <hr>
-        <p id="copyright">Copyright &copy; 2023 Developed by : <a href="https://github.com/yousefHijazi1/" target="_blank">Yousef Hijazi</a>. All right reserved</p>
+        <p id="copyright">Copyright &copy; 2023 Developed by : <a href="https://github.com/yousefHijazi1/" target="_blank">Yousef Hijazi </a>. All right reserved</p>
     </div>
 </footer>
 

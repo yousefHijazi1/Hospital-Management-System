@@ -180,11 +180,11 @@
                     </div>
                     <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                         <select name="department" id="department" class="custom-select" required>
-                            <option value="general health">General Health</option>
-                            <option value="cardiology">Cardiology</option>
-                            <option value="dental">Dental</option>
-                            <option value="neurology">Neurology</option>
-                            <option value="orthopaedics">Orthopaedics</option>
+                            <option value="general health">General Health (20$)</option>
+                            <option value="cardiology">Cardiology (50$)</option>
+                            <option value="dental">Dental (30$)</option>
+                            <option value="neurology">Neurology (25$)</option>
+                            <option value="orthopaedics">Orthopaedics (40$)</option>
                         </select>
                     </div>
                 </div>

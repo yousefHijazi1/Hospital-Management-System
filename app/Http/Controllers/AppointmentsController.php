@@ -38,7 +38,38 @@ class AppointmentsController extends Controller
             'appointment-time'=>'required',
             'message' => 'nullable|string'
         ]);
+            $department = $request->input('department');
+            $price;
 
+            switch($department){
+                case 'general health':
+                    $price = 20;
+                    break;
+
+                case 'cardiology':
+                    $price = 50;
+                    break;
+
+                case 'dental':
+                    $price = 30;
+                    break;
+
+                case 'neurology':
+                    $price = 25;
+                    break;
+
+                case 'orthopaedics':
+                    $price = 40;
+                    break;
+
+                default:
+                // Handle an invalid department value or provide a default price
+                $price = 0;
+                break;
+            }
+
+            $input['price'] = $price; // Assign the price to the input array
+            
             $appointmentTime = $request->input('appointment-time');
             $appointmentDepartment = $request->input('department');
              // Query the appointments table to check if the appointment exists
