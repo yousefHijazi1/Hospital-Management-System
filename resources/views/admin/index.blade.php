@@ -210,8 +210,9 @@
             </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-7 grid-margin stretch-card">
+
+        {{-- <div class="row">
+            <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                 <p class="card-title">Cash deposits</p>
@@ -233,12 +234,13 @@
                 <canvas id="total-sales-chart"></canvas>
             </div>
             </div>
-        </div>
+        </div> --}}
+
         <div class="row">
             <div class="col-md-12 stretch-card">
             <div class="card">
                 <div class="card-body">
-                <p class="card-title">Recent Purchases</p>
+                <p class="card-title">System users</p>
                 <div class="table-responsive">
                     <table id="recent-purchases-listing" class="table">
                     <thead>
@@ -247,7 +249,9 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Address</th>
+                            <th>Role</th>
                             <th>Permission</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -257,7 +261,28 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>{{ $user->address }}</td>
-                                <td>{{ $user->permission }}</td>
+                                <td>{{ $user->role }}</td>
+                                <td>
+                                    @if($user->permission)
+                                        <span class="text-success" style="font-weight: bold">Enabled</span>
+                                    @else
+                                        <span class="text-danger" style="font-weight: bold">Disabled</span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if($user->permission)
+                                        <form action="{{ route('permission', $user->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger p-2">Disable Permission</button>
+                                        </form>
+                                    @else
+                                        <form action="{{ route('permission', $user->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success p-2">Enable Permission</button>
+                                        </form>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
 

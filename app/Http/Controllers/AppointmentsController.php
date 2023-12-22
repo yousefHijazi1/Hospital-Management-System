@@ -34,7 +34,7 @@ class AppointmentsController extends Controller
             'email' => 'required|email',
             'birthDate' => 'required|date',
             'department' => 'required',
-            'phone' => 'required',
+            'phone' => ['required', 'numeric'],
             'appointment-time'=>'required',
             'message' => 'nullable|string'
         ]);
@@ -69,7 +69,7 @@ class AppointmentsController extends Controller
             }
 
             $input['price'] = $price; // Assign the price to the input array
-            
+
             $appointmentTime = $request->input('appointment-time');
             $appointmentDepartment = $request->input('department');
              // Query the appointments table to check if the appointment exists

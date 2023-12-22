@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
 /*
@@ -19,6 +20,7 @@ use App\Http\Controllers\Auth\LoginController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class,'redirect'])->name('home');
     Route::get('/settings',function(){ return view('admin.setting');})->name('setting');
+    Route::post('/permission/{userId}',[AdminController::class,'togglePermission'])->name('permission');
 });
 
 Route::get('/',[HomeController::class,'index'])->name('index');

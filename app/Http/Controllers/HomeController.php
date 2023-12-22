@@ -33,7 +33,9 @@ class HomeController extends Controller
                     return view('admin.index',compact('appointmentCount','totalPrice','users'));
                 }
                 else{
-                    $appointments = Appointment::all();
+                    $user = Auth::user();
+                    $appointments = Appointment::where('department', $user->role)->get(); // Retrieve the appointments where department matches the user's role
+                    // $appointments = Appointment::all();
                     return view('doctor.index',compact('appointments'));
                 }
             }
