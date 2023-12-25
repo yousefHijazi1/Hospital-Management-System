@@ -64,7 +64,7 @@
             <div class="mb-3 col-lg-12 col-md-12 col-sm-6">
                 <label for="role">Role</label>
                 <select class="form-select" id="role" name="role" aria-label="Default select example">
-                    <option selected>Select your role </option>
+                    <option disabled>Select your role </option>
                     <option value="general health">General health</option>
                     <option value="dental">Dental</option>
                     <option value="cardiology">Cardiology</option>

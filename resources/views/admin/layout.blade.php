@@ -154,7 +154,7 @@
                 </li>
                 <li class="nav-item nav-profile dropdown">
                     <div class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <img src="admin/images/{{ Auth::user()->image }}" alt="profile"/>
+                    <img src="images/{{ Auth::user()->image }}" alt="profile"/>
                     <span class="nav-profile-name">{{ Auth::user()->name }}</span>
                     </div>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
