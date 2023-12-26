@@ -9,7 +9,7 @@
                     <div class="d-flex justify-content-between flex-wrap">
                         <div class="d-flex align-items-end flex-wrap">
                             <div class="me-md-3 me-xl-5">
-                                <h2>Welcome back,</h2>
+                                <h2>Welcome back</h2>
                                 <p class="mb-md-0">Your analytics dashboard template.</p>
                             </div>
                             <div class="d-flex">
@@ -33,6 +33,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
@@ -73,7 +74,7 @@
                                                 <h5 class="me-2 mb-0">{{ $appointmentCount }}</h5>
                                             </div>
                                         </div>
-                                        <div
+                                        {{-- <div
                                             class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                                             <i class="mdi mdi-download me-3 icon-lg text-warning"></i>
                                             <div class="d-flex flex-column justify-content-around">
@@ -88,7 +89,7 @@
                                                 <small class="mb-1 text-muted">Flagged</small>
                                                 <h5 class="me-2 mb-0">3497843</h5>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

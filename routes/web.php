@@ -12,8 +12,12 @@ use App\Http\Controllers\Auth\LoginController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class,'redirect'])->name('home');
     Route::get('/settings',function(){ return view('admin.setting');})->name('setting');
+    Route::get('/messages',[AdminController::class,'messages'])->name('messages');
+    Route::get('/create',[adminController::class,'create'])->name('create');
+
     Route::post('/permission/{userId}',[AdminController::class,'togglePermission'])->name('permission');
-    Route::post('/profileUpdate/{user}',[AdminController::class,'profileUpdate'])->name('profileUpdate');
+    Route::post('/profileUpdate',[AdminController::class,'profileUpdate'])->name('profileUpdate');
+    Route::post('/changePassword',[AdminController::class,'changePassword'])->name('changePassword');
     Route::delete('/delete/{id}',[AdminController::class,'destroy'])->name('delete');
 });
 
