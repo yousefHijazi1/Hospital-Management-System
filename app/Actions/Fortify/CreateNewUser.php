@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Models\Doctor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -25,10 +26,12 @@ class CreateNewUser implements CreatesNewUsers
             'phone' => ['required', 'digits:8'],
             'address' => ['required', 'string', 'max:191'],
             'role' => ['required', 'string'],
+            'start_time' =>['required','date_format:H:i'],
+            'end_time' =>['required','date_format:H:i'],
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'phone'=>$input['phone'],
@@ -37,6 +40,13 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
 
+        Doctor::create([
+            'user_id' => $user->id,
+            'start_time' => $input['start_time'],
+            'end_time' => $input['end_time']
+        ]);
+
+        return $user;
 
     }
 }

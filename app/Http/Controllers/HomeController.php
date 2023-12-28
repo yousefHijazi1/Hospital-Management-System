@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $doctors = Doctor::all();
+        $doctors = User::whereNotIn('role', ['admin'])->get();
         $blogs = Blog::all();
         return view('pages.index', compact('doctors','blogs'));
     }

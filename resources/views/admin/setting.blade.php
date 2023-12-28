@@ -58,7 +58,7 @@
                                         <input type="password" name="password" class="form-control"  placeholder="Password" required>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <label>File upload</label>
+                                        <label>Your Image</label>
                                         <div class="input-group">
                                             <div class="custom-file ">
                                                 <input type="file" name="image" class="form-control file-upload-info " id="image-input">

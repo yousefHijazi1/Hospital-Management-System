@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
     protected $table = 'doctors';
 
     protected $fillable = [
-        'name',
-        'specialty',
-        'image'
+        'user_id',
+        'start_time',
+        'end_time'
     ];
-    
+
     use HasFactory;
 }

@@ -15,9 +15,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/messages',[AdminController::class,'messages'])->name('messages');
     Route::get('/create',[adminController::class,'create'])->name('create');
 
+    Route::post('/userCreate',[AdminController::class,'userCreate'])->name('userCreate');
     Route::post('/permission/{userId}',[AdminController::class,'togglePermission'])->name('permission');
     Route::post('/profileUpdate',[AdminController::class,'profileUpdate'])->name('profileUpdate');
     Route::post('/changePassword',[AdminController::class,'changePassword'])->name('changePassword');
+    
     Route::delete('/delete/{id}',[AdminController::class,'destroy'])->name('delete');
 });
 

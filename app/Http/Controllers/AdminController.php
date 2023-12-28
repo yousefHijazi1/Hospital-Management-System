@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
+use App\Models\Doctor;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
@@ -28,9 +29,51 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function userCreate(Request $request)
     {
-        //
+        // Validate the form data
+        $input = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            'phone' => 'required',
+            'address'=> 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
+            'role' => 'required|not_in:admin',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if($image = $request->file('image')){
+            $profileImage= date('YmdHis').".".$image->getClientOriginalExtension(); //add the image upload date to its name to not duplicate the names
+            $image->move('images/',$profileImage);
+            $input['image'] = "$profileImage";
+        }
+
+        $input['password'] = Hash::make($input['password']);
+
+        $user = User::create($input);
+
+        if(!$user){
+            return back()->withErrors('User creation failed.')->withInput();
+        }
+
+
+        $doctor = Doctor::create([
+            'user_id' => $user->id,
+            'start_time' => $input['start_time'],
+            'end_time' => $input['end_time'],
+        ]);
+
+        if (!$doctor) {
+            //delete user form users table if not added in doctors table
+            $user->delete();
+            return back()->withErrors('Doctor creation failed.')->withInput();
+        }
+
+        return redirect()->back()->with('success', 'Doctor created successfully.');
+
+
     }
 
     /**
@@ -67,12 +110,22 @@ class AdminController extends Controller
 
         $user = User::findOrFail($id);
 
-        $user->delete();
-        return back()->with('success', 'User deleted successfully');
+        // Delete the associated doctor record if it exists
+        if ($user->doctor) {
+
+            $user->doctor->delete(); //delete user from doctors table
+            $user->delete(); //delete user from users table
+            return back()->with('success', 'User deleted successfully');
+        }
+        else{
+            return back()->with('failed', 'User delete failed');
+        }
+
+
     }
 
 
-    public function profileUpdate(Request $request) {
+    public function profileUpdate(Request $request) { //admin settings
 
         $validatedData = $request->validate([ //check if the user fill this required data
             'name'=>'required',

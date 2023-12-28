@@ -18,59 +18,81 @@
             @csrf
             <h3 class="title">Register</h3>
 
-            <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
-                <label for="name" class="form-label">Name *</label>
-                <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" required placeholder="Enter your name">
-                @error('name')
-                    <span class="text-danger"><strong>{{ $message }}</strong></span>
-                @enderror
+            <div class="row">
+                <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
+                    <label for="name" class="form-label">Name *</label>
+                    <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" required placeholder="Enter your name">
+                        @error('name')
+                            <span class="text-danger"><strong>{{ $message }}</strong></span>
+                        @enderror
+                </div>
+
+                <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
+                    <label for="email" class="form-label"> Email address *</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required placeholder="Enter your e-mail address">
+                        @error('email')
+                            <span class="text-danger"><strong>{{ $message }}</strong></span>
+                        @enderror
+                </div>
             </div>
 
-            <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
-                <label for="email" class="form-label"> Email address *</label>
-                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required placeholder="Enter your e-mail address">
-                @error('email')
-                    <span class="text-danger"><strong>{{ $message }}</strong></span>
-                @enderror
+            <div class="row">
+                <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
+                    <label for="phone" class="form-label">Phone *</label>
+                    <input type="number" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" required placeholder="Enter your phone number">
+                        @error('phone')
+                            <span class="text-danger"><strong>{{ $message }}</strong></span>
+                        @enderror
+                </div>
+
+                <div class="mb-3 col-lg-6 col-md-6 col-sm-6 ">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="tel" class="form-control" name="address" id="address" aria-describedby="addressHelp" placeholder="(optionally)">
+                </div>
             </div>
 
-            <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
-                <label for="phone" class="form-label">Phone *</label>
-                <input type="number" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" required placeholder="Enter your phone number">
-                @error('phone')
-                    <span class="text-danger"><strong>{{ $message }}</strong></span>
-                @enderror
+            <div class="row">
+                <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
+                    <label for="password" class="form-label">Password *</label>
+                    <input type="password" class="form-control" name="password" id="password" required placeholder="Enter strong password">
+                        @error('password')
+                            <span class="text-danger"><strong>{{ $message }}</strong></span>
+                        @enderror
+                </div>
+
+                <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
+                    <label for="confirmPass" class="form-label">Confirm Password *</label>
+                    <input type="password" name="password_confirmation" class="form-control" id="confirmPass" required placeholder="Re enter your password">
+                    <p id="errorText"></p>
+                </div>
             </div>
 
-            <div class="mb-3 col-lg-6 col-md-6 col-sm-6 ">
-                <label for="address" class="form-label">Address</label>
-                <input type="tel" class="form-control" name="address" id="address" aria-describedby="addressHelp" placeholder="(optionally)">
-            </div>
-
-            <div class=" col-lg-6 col-md-6 col-sm-6">
-                <label for="password" class="form-label">Password *</label>
-                <input type="password" class="form-control" name="password" id="password" required placeholder="Enter strong password">
-                @error('password')
-                    <span class="text-danger"><strong>{{ $message }}</strong></span>
-                @enderror
-            </div>
-
-            <div class=" col-lg-6 col-md-6 col-sm-6">
-                <label for="confirmPass" class="form-label">Confirm Password *</label>
-                <input type="password" name="password_confirmation" class="form-control" id="confirmPass" required placeholder="Re enter your password">
-                <p id="errorText"></p>
-            </div>
-
-            <div class="mb-3 col-lg-12 col-md-12 col-sm-6">
-                <label for="role">Role</label>
-                <select class="form-select" id="role" name="role" aria-label="Default select example">
-                    <option disabled>Select your role </option>
-                    <option value="general health">General health</option>
-                    <option value="dental">Dental</option>
-                    <option value="cardiology">Cardiology</option>
-                    <option value="neurology">Neurology</option>
-                    <option value="orthopaedics">Orthopaedics</option>
-                </select>
+            <div class="row">
+                <div class="mb-3 col-lg-4 col-md-12 col-sm-6">
+                    <label for="role">Role</label>
+                    <select class="form-select" id="role" name="role" aria-label="Default select example">
+                        <option disabled>Select your role </option>
+                        <option value="general health">General health</option>
+                        <option value="dental">Dental</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="orthopaedics">Orthopaedics</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3 col-lg-4 col-md-12 col-sm-12">
+                    <label>Start Time</label>
+                    <input type="time" name="start_time" class="form-control"  placeholder="Password" required>
+                        @error('start_time')
+                            <span class="text-danger"><strong>{{ $message }}</strong></span>
+                        @enderror
+                </div>
+                <div class="form-group mb-3 col-lg-4 col-md-12 col-sm-12">
+                    <label>End Time</label>
+                    <input type="time" name="end_time" class="form-control"  placeholder="Password" required>
+                        @error('end_time')
+                            <span class="text-danger"><strong>{{ $message }}</strong></span>
+                        @enderror
+                </div>
             </div>
 
             <div class="col-4">
