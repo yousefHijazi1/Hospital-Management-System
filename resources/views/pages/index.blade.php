@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <p class="text-xl mb-0">Dr. {{ $doctor->name }}</p>
+                            <p class="text-xl mb-0">Dr. {{ $doctor->name }} <span style="font-size: 13px">({{ $doctor->role }})</span> </p>
                             <span class="text-sm text-grey">{{ $doctor->specialty }}</span>
                         </div>
                     </div>
@@ -136,11 +136,9 @@
 
                     <div class="card-blog">
                         <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
+
                             <a href="{{ route('details') }}" class="post-thumb">
-                                <img src="../assets/img/blog/{{ $blog->image }}" alt="">
+                                <img src="images/{{ $blog->image }}" alt="">
                             </a>
                         </div>
                         <div class="body">
@@ -151,9 +149,9 @@
                 </div>
                 @endforeach
 
-                <div class="col-12 text-center mt-4 wow zoomIn">
+                {{-- <div class="col-12 text-center mt-4 wow zoomIn">
                     <a href="{{ route('blog') }}" class="btn btn-primary">Read More</a>
-                </div>
+                </div> --}}
 
             </div>
         </div>

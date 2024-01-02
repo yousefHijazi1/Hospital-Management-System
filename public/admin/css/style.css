@@ -20,7 +20,7 @@
     + Color Functions Mixins
     + Badge Mixins
     + Blockquote Mixins
-    
+
   * Core Styles
     + Reset Styles
     + Fonts
@@ -43,7 +43,7 @@
     + Lists
     + Tables
   * Plugin overrides
-    + Data-tables  
+    + Data-tables
   * Landing screens
     + Auth
   * Layout
@@ -22134,8 +22134,8 @@ dl li {
 }
 
 .table td img {
-  width: 36px;
-  height: 36px;
+  width: 60px;
+  height: px;
   border-radius: 100%;
 }
 

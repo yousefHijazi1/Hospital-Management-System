@@ -172,6 +172,20 @@
                         <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                        <i class="mdi mdi-account menu-icon"></i>
+                        <span class="menu-title">User settings</span>
+                        <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="auth">
+                            <ul class="nav flex-column sub-menu">
+                                {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Show users </a></li> --}}
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('create') }}"> Add user </a></li>
+                            </ul>
+                        </div>
+                    </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="">
                         <i class="mdi mdi-script menu-icon"></i>
@@ -186,25 +200,12 @@
                         </a>
                         <div class="collapse" id="news">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Show news </a></li>
-                                <li class="nav-item"> <a class="nav-link" href=""> Create news </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('news') }}"> Show news </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('create_news') }}"> Create news </a></li>
                             </ul>
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">User settings</span>
-                        <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Show users </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('create') }}"> Add user </a></li>
-                            </ul>
-                        </div>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('messages') }}">
                         <i class="mdi mdi-comment-text menu-icon"></i>
@@ -214,7 +215,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('setting') }}">
                         <i class="mdi mdi-settings menu-icon"></i>
-                        <span class="menu-title">Admin Settings</span>
+                        <span class="menu-title">Settings</span>
                         </a>
                     </li>
                     <li class="nav-item">

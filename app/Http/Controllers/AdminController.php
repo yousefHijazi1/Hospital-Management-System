@@ -6,31 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Doctor;
+use App\Models\Blog;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create() //create users
     {
         return view('admin.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function userCreate(Request $request)
-    {
+
+    public function userStore(Request $request) {
         // Validate the form data
         $input = $request->validate([
             'name' => 'required',
@@ -58,7 +46,6 @@ class AdminController extends Controller
             return back()->withErrors('User creation failed.')->withInput();
         }
 
-
         $doctor = Doctor::create([
             'user_id' => $user->id,
             'start_time' => $input['start_time'],
@@ -72,38 +59,45 @@ class AdminController extends Controller
         }
 
         return redirect()->back()->with('success', 'Doctor created successfully.');
+    }
+
+    public function create_news(){
+        return view('admin.create_news');
+    }
+
+    public function newsStore(Request $request){
+        $input = $request->validate([
+            'title' =>'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+
+        if($image = $request->file('image')){
+            $profileImage= date('YmdHis').".".$image->getClientOriginalExtension(); //add the image upload date to its name to not duplicate the names
+            $image->move('images/',$profileImage);
+            $input['image'] = "$profileImage";
+        }
+
+        if(Blog::create($input)){
+            return redirect()->back()->with('success','News Created');
+        }else{
+            return redirect()->back()->with('failed','Creation Failed');
+        }
 
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function news() {
+        $news = Blog::all();
+        return view('admin.news',compact('news'));
     }
 
     public function messages() {
         $messages = Contact::all();
         return view('admin.messages',compact('messages'));
     }
+
 
     // Delete user from users table
     public function destroy(string $id) {
@@ -120,8 +114,18 @@ class AdminController extends Controller
         else{
             return back()->with('failed', 'User delete failed');
         }
+    }
 
+    public function news_destroy(string $id) {
 
+        $blog = Blog::findOrFail($id);
+
+        if ($blog->delete()) { //delete blog from blog table
+            return back()->with('success', 'Blog deleted successfully');
+        }
+        else{
+            return back()->with('failed', 'Blog delete failed');
+        }
     }
 
 

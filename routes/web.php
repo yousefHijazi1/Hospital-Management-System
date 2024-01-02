@@ -14,13 +14,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings',function(){ return view('admin.setting');})->name('setting');
     Route::get('/messages',[AdminController::class,'messages'])->name('messages');
     Route::get('/create',[adminController::class,'create'])->name('create');
+    Route::get('/create_news',[adminController::class,'create_news'])->name('create_news');
+    Route::get('/news',[adminController::class,'news'])->name('news');
 
-    Route::post('/userCreate',[AdminController::class,'userCreate'])->name('userCreate');
+
+    Route::post('/newsCreate',[AdminController::class,'newsStore'])->name('newsStore');
+    Route::post('/userCreate',[AdminController::class,'userStore'])->name('userCreate');
     Route::post('/permission/{userId}',[AdminController::class,'togglePermission'])->name('permission');
     Route::post('/profileUpdate',[AdminController::class,'profileUpdate'])->name('profileUpdate');
     Route::post('/changePassword',[AdminController::class,'changePassword'])->name('changePassword');
-    
+
     Route::delete('/delete/{id}',[AdminController::class,'destroy'])->name('delete');
+    Route::delete('/news_delete/{id}',[AdminController::class,'news_destroy'])->name('news_delete');
 });
 
 // Project index route
