@@ -12,13 +12,13 @@
                                 <h2>Welcome back</h2>
                                 <p class="mb-md-0">Your analytics dashboard template.</p>
                             </div>
-                            <div class="d-flex">
+                            <div class="d-flex" >
                                 <i class="mdi mdi-home text-muted hover-cursor"></i>
                                 <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
                                 <p class="text-primary mb-0 hover-cursor">Analytics</p>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-end flex-wrap">
+                        {{-- <div class="d-flex justify-content-between align-items-end flex-wrap">
                             <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
                                 <i class="mdi mdi-download text-muted"></i>
                             </button>
@@ -29,7 +29,7 @@
                                 <i class="mdi mdi-plus text-muted"></i>
                             </button>
                             <button class="btn btn-primary mt-2 mt-xl-0">Generate report</button>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

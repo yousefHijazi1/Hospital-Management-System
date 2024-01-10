@@ -15,9 +15,26 @@ class HomeController extends Controller
     public function index(){
         $doctors = User::whereNotIn('role', ['admin'])->get();
         $blogs = Blog::all();
+
         return view('pages.index', compact('doctors','blogs'));
     }
 
+    public function getDoctorTimeslots($userId) {
+        $doctor = Doctor::where('user_id', $userId)->first();
+
+        if ($doctor) {
+            $timeslots = [
+                [
+                    'start_time' => $doctor->start_time,
+                    'end_time' => $doctor->end_time,
+                ]
+            ];
+        } else {
+            $timeslots = [];
+        }
+
+        return response()->json($timeslots);
+}
 
     public function redirect(){
         if(Auth::id()){

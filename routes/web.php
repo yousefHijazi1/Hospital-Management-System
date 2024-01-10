@@ -31,6 +31,9 @@ Route::middleware(['auth'])->group(function () {
 // Project index route
 Route::get('/',[HomeController::class,'index'])->name('index');
 
+// display the doctor times in appointment form
+Route::get('/get-doctor-timeslots/{userId}', [HomeController::class, 'getDoctorTimeslots']);
+
 // Guest pages routes
 Route::get('/about', function () { return view('pages.about'); })->name('about');
 Route::get('/details', function () { return view('pages.details'); })->name('details');

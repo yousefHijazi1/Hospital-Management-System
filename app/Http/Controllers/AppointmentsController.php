@@ -5,25 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Redirect;
-
+use App\Models\User;
 class AppointmentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -38,7 +22,14 @@ class AppointmentsController extends Controller
             'appointment-time'=>'required',
             'message' => 'nullable|string'
         ]);
-            $department = $request->input('department');
+            $user_id = $request->input('department'); // department input value = user_id
+
+            $user = User::find($user_id);
+
+            $department = $user->role; // Get the department from the user's role
+
+            $input['department'] = $department;
+
             $price;
 
             switch($department){
@@ -88,30 +79,6 @@ class AppointmentsController extends Controller
                 return redirect()->route('index')->with('add_failed','Failed !');
             }
         }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
