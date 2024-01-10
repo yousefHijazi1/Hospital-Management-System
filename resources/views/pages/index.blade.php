@@ -207,7 +207,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                             <select name="appointment-time" id="appointment-time" class="custom-select" required>
-                                <option value=""></option>
+                                <option value=""> Select doctor first</option>
                             </select>
                         </div>
                     </div>

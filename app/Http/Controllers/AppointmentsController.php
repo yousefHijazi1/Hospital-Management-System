@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\User;
+use App\Models\AppointmentHistory;
 class AppointmentsController extends Controller
 {
     /**
@@ -62,7 +63,7 @@ class AppointmentsController extends Controller
             $input['price'] = $price; // Assign the price to the input array
 
             $appointmentTime = $request->input('appointment-time');
-            $appointmentDepartment = $request->input('department');
+            $appointmentDepartment = $department;
              // Query the appointments table to check if the appointment exists
             $existingAppointment = Appointment::where('appointment-time', $appointmentTime)
             ->where('department', '=', $appointmentDepartment)
@@ -86,8 +87,22 @@ class AppointmentsController extends Controller
     public function destroy(string $id)
     {
         $appointment = Appointment::findOrFail($id);
-        $appointment->delete();
 
-        return Redirect::route('home')->with('appointment_done', 'Appointment Expired');
+            $appointmentHistory = new AppointmentHistory();
+            $appointmentHistory->name = $appointment->name;
+            $appointmentHistory->email = $appointment->email;
+            $appointmentHistory->birthDate = $appointment->birthDate;
+            $appointmentHistory->phone = $appointment->phone;
+            $appointmentHistory->message = $appointment->message;
+            $appointmentHistory->{'appointment-time'} = $appointment->{'appointment-time'};
+            $appointmentHistory->price = $appointment->price;
+
+            if($appointmentHistory->save()){
+                $appointment->delete();
+                return Redirect::route('home')->with('appointment_done', 'Appointment Expired');
+            }else{
+                return Redirect::route('home')->with('failed', 'Something wrong. Try again');
+            }
+
     }
 }
