@@ -1,19 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-        <path
-            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
     </symbol>
+
     <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-        <path
-            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
     </symbol>
+
     <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-        <path
-            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
     </symbol>
 </svg>
 @extends('pages.layout')
-
 
 @section('content')
     @if (session('add_conflict'))
@@ -21,8 +19,8 @@
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
                 <use xlink:href="#info-fill" />
             </svg>
-            {{ session('add_conflict') }}&nbsp; <a href="#myForm" class="alert-link" style="text-decoration: underline"> Try
-                agin with another appointment</a>
+            {{ session('add_conflict') }}&nbsp; <a href="#myForm" class="alert-link" style="text-decoration: underline">
+                Try agin with another appointment</a>
         </div>
     @endif
 
@@ -130,8 +128,7 @@
                                 </div>
                             </div>
                             <div class="body">
-                                <p class="text-xl mb-0">Dr. {{ $doctor->name }} <span
-                                        style="font-size: 13px">({{ $doctor->role }})</span> </p>
+                                <p class="text-xl mb-0">Dr. {{ $doctor->name }} <span style="font-size: 13px">({{ $doctor->role }})</span></p>
                                 <span class="text-sm text-grey">{{ $doctor->specialty }}</span>
                             </div>
                         </div>
@@ -146,19 +143,14 @@
                 <div class="row mt-5">
                     @foreach ($blogs as $blog)
                         <div class="col-lg-4 py-2 wow zoomIn">
-
                             <div class="card-blog">
                                 <div class="header">
-
-                                    <a href="{{ route('details') }}" class="post-thumb">
-                                        <img src="images/{{ $blog->image }}" alt="">
-                                    </a>
+                                    <a href="{{ route('details') }}" class="post-thumb"> <img src="images/{{ $blog->image }}" alt=""></a>
                                 </div>
                                 <div class="body">
                                     <h5 class="post-title"><a href="{{ route('details') }}">{{ $blog->title }}</a></h5>
                                 </div>
                             </div>
-
                         </div>
                     @endforeach
 
@@ -181,29 +173,25 @@
                             <input type="text" name="name" class="form-control" placeholder="Full name" required>
                         </div>
                         <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight">
-                            <input type="email" name="email" class="form-control" placeholder="Email address"
-                                required>
+                            <input type="email" name="email" class="form-control" placeholder="Email address" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                            <input type="date" name="birthDate" min="{{ date('Y-m-d') }}" class="form-control"
-                                required>
+                            <input type="date" name="birthDate" min="{{ date('Y-m-d') }}" class="form-control" required>
                         </div>
                         <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                             <select name="department" id="department" class="custom-select" required>
                                 <option value="">Select a doctor</option>
                                 @foreach ($doctors as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->role }})
-                                    </option>
+                                    <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->role }})</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-sm-6 py-2 wow fadeInUp" data-wow-delay="300ms">
-                            <input type="number" name="phone" class="form-control" placeholder="Phone number"
-                                required>
+                            <input type="number" name="phone" class="form-control" placeholder="Phone number" required>
                         </div>
                         <div class="col-lg-6 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                             <select name="appointment-time" id="appointment-time" class="custom-select" required>
@@ -214,8 +202,7 @@
 
                     <div class="row">
                         <div class="col-lg-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                            <textarea name="message" id="message" class="form-control" rows="6"
-                                placeholder="Enter a message (optional)"></textarea>
+                            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter a message (optional)"></textarea>
                         </div>
                     </div>
 
