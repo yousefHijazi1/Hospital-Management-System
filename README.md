@@ -1,5 +1,5 @@
 Hospital Managment System Made with Laravel 10
-![alt text](https://github.com/yousefHijazi1/Hospital-Management-System.git)
+![alt text](https://github.com/yousefHijazi1/Hospital-Management-System/blob/main/index.png)
 
 Installation:
 
