@@ -243,7 +243,7 @@
                                                 optionText + '</option>';
                                             $('#appointment-time').append(option);
 
-                                            currentMoment.add(30, 'minutes'); // Add 30 minutes
+                                            currentMoment.add(60, 'minutes'); // Add 30 minutes
                                         }
                                     } else {
                                         // If no time slots available, display a message

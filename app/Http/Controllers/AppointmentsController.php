@@ -26,7 +26,6 @@ class AppointmentsController extends Controller
             $user_id = $request->input('department'); // department input value = user_id
 
             $user = User::find($user_id);
-
             $department = $user->role; // Get the department from the user's role
 
             $input['department'] = $department;
