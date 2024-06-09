@@ -9,6 +9,8 @@ use App\Models\Doctor;
 use App\Models\Blog;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use function Laravel\Prompts\warning;
+
 class AdminController extends Controller
 {
 
@@ -31,7 +33,7 @@ class AdminController extends Controller
             'role' => 'required|not_in:admin',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
+        
         if($image = $request->file('image')){
             $profileImage= date('YmdHis').".".$image->getClientOriginalExtension(); //add the image upload date to its name to not duplicate the names
             $image->move('images/',$profileImage);
@@ -70,7 +72,6 @@ class AdminController extends Controller
             'title' =>'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-
 
         if($image = $request->file('image')){
             $profileImage= date('YmdHis').".".$image->getClientOriginalExtension(); //add the image upload date to its name to not duplicate the names
@@ -139,7 +140,7 @@ class AdminController extends Controller
             'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048' //the accepted file is image => jpeg... and max size: 2Mb
         ]);
 
-        $input = $request->except('password'); //save all data from request in varibale input except password
+        $input = $request->except('password'); //save all data from request in variable input except password
         // dd($input);
 
         if($image = $request->file('image')){
@@ -147,7 +148,7 @@ class AdminController extends Controller
             $image->move('images/',$profileImage);
             $input['image'] = "$profileImage";
         }
-        else{ //if the user dont want to update the image then will remaine the same image
+        else{ //if the user don't want to update the image then will remain the same image
             unset ($input['image']);
         }
 
@@ -160,7 +161,7 @@ class AdminController extends Controller
                 return back()->with('failed','Edit Failed');
             }
         }else{
-            return back()->with('failed','Icorrect Password');
+            return back()->with('failed','Incorrect Password');
         }
 
     }
@@ -193,7 +194,7 @@ class AdminController extends Controller
             return redirect()->back()->with('success','Password Changed');
         }
         else{
-            return redirect()->back()->with('failed','Somethig wrong');
+            return redirect()->back()->with('failed','Something wrong');
         }
 
     }

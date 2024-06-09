@@ -11,12 +11,12 @@ use App\Http\Controllers\Auth\LoginController;
 // Authenticated users routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class,'redirect'])->name('home');
+    
     Route::get('/settings',function(){ return view('admin.setting');})->name('setting');
     Route::get('/messages',[AdminController::class,'messages'])->name('messages');
     Route::get('/create',[adminController::class,'create'])->name('create');
     Route::get('/create_news',[adminController::class,'create_news'])->name('create_news');
     Route::get('/news',[adminController::class,'news'])->name('news');
-
 
     Route::post('/newsCreate',[AdminController::class,'newsStore'])->name('newsStore');
     Route::post('/userCreate',[AdminController::class,'userStore'])->name('userCreate');

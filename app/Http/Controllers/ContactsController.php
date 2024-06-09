@@ -15,31 +15,22 @@ class ContactsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
         public function store(Request $request){
 
-        $input = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required',
-            'message' => 'required'
-        ]);
+            $input = $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'subject' => 'required',
+                'message' => 'required'
+            ]);
 
-
-        if (Contact::create($input)) {
-            return redirect()->route('contact')->with('add_success','Message sent');
-        }else{
-            return redirect()->route('contact')->with('add_failed','Failed !');
-        }
+            if (Contact::create($input)) {
+                return redirect()->route('contact')->with('add_success','Message sent');
+            }else{
+                return redirect()->route('contact')->with('add_failed','Failed !');
+            }
 
     }
 }
