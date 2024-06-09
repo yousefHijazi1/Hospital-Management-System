@@ -1,5 +1,12 @@
 Hospital Managment System Made with Laravel 10
 
+Index page
+![alt text](https://github.com/yousefHijazi1/Hospital-Management-System/blob/main/index.png)
+
+Admin dashboard
+![alt text](https://github.com/yousefHijazi1/Hospital-Management-System/blob/main/admin.png)
+
+
 Installation:
 
 Clone the Repo:
